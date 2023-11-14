@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/common/widgets/signupWidgets/siginUpForm.dart';
-import 'package:recipe_app/utils/constants/sizes.dart';
+import 'package:green_recipe/common/widgets/signupWidgets/siginUpForm.dart';
+import 'package:green_recipe/utils/constants/sizes.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

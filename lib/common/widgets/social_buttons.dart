@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/utils/constants/colors.dart';
+import 'package:green_recipe/utils/constants/colors.dart';
 
 class RecipeAppSocialButton extends StatelessWidget {
   const RecipeAppSocialButton({

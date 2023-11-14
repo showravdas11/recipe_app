@@ -3,9 +3,9 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:recipe_app/features/authentication/screens/verify_email.dart';
-// import 'package:recipe_app/repository/exceptions/signup_email_password_failure.dart';
-// import 'package:recipe_app/screens/welcome_screen.dart';
+// import 'package:green_recipe/features/authentication/screens/verify_email.dart';
+// import 'package:green_recipe/repository/exceptions/signup_email_password_failure.dart';
+// import 'package:green_recipe/screens/welcome_screen.dart';
 
 // class AuthenticationRepository extends GetxController {
 //   static AuthenticationRepository get instance => Get.find();
