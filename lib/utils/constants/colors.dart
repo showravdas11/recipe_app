@@ -35,4 +35,5 @@ class RecipeAppColors {
 
   //bordercolor
   static const Color borderColor = Color.fromRGBO(189, 187, 187, 1);
+  static const Color borderleftColor = Color.fromRGBO(245, 36, 36, 1);
 }
