@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/common/widgets/commonButton/rounded.dart';
-import 'package:recipe_app/features/authentication/screens/login.dart';
-import 'package:recipe_app/features/authentication/screens/post.dart';
+import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
+import 'package:green_recipe/features/authentication/screens/login.dart';
+import 'package:green_recipe/features/authentication/screens/post.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});

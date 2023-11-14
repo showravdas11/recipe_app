@@ -1,16 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/common/widgets/commonButton/rounded.dart';
-import 'package:recipe_app/common/widgets/form_divider.dart';
-import 'package:recipe_app/common/widgets/social_buttons.dart';
+import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
+import 'package:green_recipe/common/widgets/form_divider.dart';
+import 'package:green_recipe/common/widgets/social_buttons.dart';
 import 'package:lottie/lottie.dart';
-import 'package:recipe_app/common/widgets/toast/toast.dart';
-import 'package:recipe_app/features/authentication/screens/post.dart';
-import 'package:recipe_app/features/authentication/screens/signUp.dart';
-import 'package:recipe_app/utils/constants/colors.dart';
+import 'package:green_recipe/common/widgets/toast/toast.dart';
+import 'package:green_recipe/features/authentication/screens/post.dart';
+import 'package:green_recipe/features/authentication/screens/signUp.dart';
+import 'package:green_recipe/utils/constants/colors.dart';
 import 'dart:ui';
 import 'package:iconsax/iconsax.dart';
-import 'package:recipe_app/utils/constants/sizes.dart';
+import 'package:green_recipe/utils/constants/sizes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {

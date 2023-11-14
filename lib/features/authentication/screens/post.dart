@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/common/widgets/toast/toast.dart';
-import 'package:recipe_app/features/authentication/screens/login.dart'; 
+import 'package:green_recipe/common/widgets/toast/toast.dart';
+import 'package:green_recipe/features/authentication/screens/login.dart'; 
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});

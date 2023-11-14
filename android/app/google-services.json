@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:349574348652:android:e1ae33bf78e38480b47d49",
+        "android_client_info": {
+          "package_name": "com.example.green_recipe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTkxOgYTzBbZmEdnaxIV2DEM9qv5FHgKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:349574348652:android:8524a18de8683785b47d49",
         "android_client_info": {
           "package_name": "com.example.recipe_app"

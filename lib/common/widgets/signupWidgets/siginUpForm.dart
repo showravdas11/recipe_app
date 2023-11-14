@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:recipe_app/common/widgets/commonButton/rounded.dart';
-import 'package:recipe_app/common/widgets/signupWidgets/termsAndCodition.dart';
-import 'package:recipe_app/common/widgets/social_buttons.dart';
-import 'package:recipe_app/common/widgets/toast/toast.dart';
-import 'package:recipe_app/utils/constants/colors.dart';
-import 'package:recipe_app/utils/constants/sizes.dart';
+import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
+import 'package:green_recipe/common/widgets/signupWidgets/termsAndCodition.dart';
+import 'package:green_recipe/common/widgets/social_buttons.dart';
+import 'package:green_recipe/common/widgets/toast/toast.dart';
+import 'package:green_recipe/utils/constants/colors.dart';
+import 'package:green_recipe/utils/constants/sizes.dart';
 
 class RecipeSignUpForm extends StatefulWidget {
   const RecipeSignUpForm({

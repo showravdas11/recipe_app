@@ -1,4 +1,4 @@
-package com.example.recipe_app
+package com.example.green_recipe
 
 import io.flutter.embedding.android.FlutterActivity
 

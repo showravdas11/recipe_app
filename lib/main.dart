@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/authentication/screens/login.dart';
-import 'package:recipe_app/firebase_options.dart';
-import 'package:recipe_app/screens/welcome_screen.dart';
+import 'package:green_recipe/features/authentication/screens/login.dart';
+import 'package:green_recipe/firebase_options.dart';
+import 'package:green_recipe/screens/welcome_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

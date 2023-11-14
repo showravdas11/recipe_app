@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/utils/constants/colors.dart';
-import 'package:recipe_app/utils/constants/sizes.dart';
+import 'package:green_recipe/utils/constants/colors.dart';
+import 'package:green_recipe/utils/constants/sizes.dart';
 
 class RoundedButton extends StatelessWidget {
   final String title;
