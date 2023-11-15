@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_recipe/features/authentication/screens/login.dart';
 import 'package:green_recipe/utils/constants/colors.dart';
 import 'package:green_recipe/utils/constants/sizes.dart';
+import 'package:green_recipe/views/screens/login_screen/login.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
-import 'package:green_recipe/common/widgets/signupWidgets/termsAndCodition.dart';
+import 'package:green_recipe/views/components/signupWidgets/termsAndCodition.dart';
 import 'package:green_recipe/common/widgets/social_buttons.dart';
 import 'package:green_recipe/common/widgets/toast/toast.dart';
 import 'package:green_recipe/utils/constants/colors.dart';
@@ -39,71 +39,32 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
         key: _formKey,
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    expands: false,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Iconsax.user),
-                      labelText: "First Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: RecipeAppSizes.spaceBtwInputFields,
-                ),
-                Expanded(
-                  child: TextField(
-                    expands: false,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Iconsax.user),
-                      labelText: "Last Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
             SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
 
             //user name
-            TextField(
+            TextFormField(
               expands: false,
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.user_edit),
+                prefixIcon: Icon(Iconsax.user),
                 labelText: "User Name",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(7),
                 ),
               ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Enter User Name';
+                }
+                return null;
+              },
             ),
 
             SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
-
-            //Email
-            // TextField(
-            //   expands: false,
-            //   keyboardType: TextInputType.emailAddress,
-            //   controller: emailController,
-            //   decoration: InputDecoration(
-            //     prefixIcon: Icon(Iconsax.direct),
-            //     labelText: "E-Mail",
-            //     border: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(7),
-            //     ),
-            //   ),
-            // ),
 
             TextFormField(
               expands: false,
@@ -118,26 +79,10 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Password';
+                  return 'Enter Your Email';
                 }
                 return null;
               },
-            ),
-
-            SizedBox(
-              height: RecipeAppSizes.spaceBtwInputFields,
-            ),
-
-            //Phone Number
-            TextField(
-              expands: false,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.call),
-                labelText: "Phone Number",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
             ),
 
             SizedBox(
@@ -160,7 +105,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Password';
+                  return 'Enter Your Password';
                 }
                 return null;
               },

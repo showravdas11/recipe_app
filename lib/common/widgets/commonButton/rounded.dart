@@ -21,7 +21,7 @@ class RoundedButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: RecipeAppColors.bgPrimaryColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(60),
         ),
         child: Center(
           child: loading

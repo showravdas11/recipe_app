@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:green_recipe/features/authentication/screens/login.dart';
 import 'package:green_recipe/firebase_options.dart';
-import 'package:green_recipe/screens/welcome_screen.dart';
+import 'package:green_recipe/views/screens/splashScreen/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       // themeMode: ThemeMode.system,
       // theme: RecipeAppTheme.lightTheme,
       // darkTheme: RecipeAppTheme.darkTheme,
-      home: WelcomeScreen(),
+      home: Splash(),
     );
   }
 }

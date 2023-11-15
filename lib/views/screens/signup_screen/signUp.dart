@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_recipe/common/widgets/signupWidgets/siginUpForm.dart';
+import 'package:green_recipe/views/components/signupWidgets/siginUpForm.dart';
 import 'package:green_recipe/utils/constants/sizes.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -28,6 +28,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                "Sign Up now to begin an amazing journey",
+                style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              ),
+              SizedBox(height: 20,),
               ///Sign up title
               Text(
                 "Let's create your account",
@@ -38,7 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
 
               SizedBox(
-                height: RecipeAppSizes.spaceBtwSections,
+                height: RecipeAppSizes.spaceBtwItems,
               ),
               //Sign up form
               RecipeSignUpForm(),
