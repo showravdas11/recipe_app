@@ -24,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final _sdf = Firebase.initializeApp();
   final _auth = FirebaseAuth.instance;
 
   @override
