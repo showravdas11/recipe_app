@@ -4,7 +4,6 @@ import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
 import 'package:green_recipe/common/widgets/social_buttons.dart';
 import 'package:green_recipe/views/screens/home_screen/bottom_appbar.dart';
 import 'package:green_recipe/views/screens/signup_screen/signUp.dart';
-import 'package:lottie/lottie.dart';
 import 'package:green_recipe/common/widgets/toast/toast.dart';
 import 'package:green_recipe/utils/constants/colors.dart';
 import 'dart:ui';

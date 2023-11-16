@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_recipe/views/screens/home_screen/home_screen.dart';
+import 'package:green_recipe/views/screens/settingScreen/setting_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MainScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     Scaffold(),
     Scaffold(),
-    Scaffold(),
+    AccountScreen()
   ];
 
   @override
