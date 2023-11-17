@@ -46,7 +46,7 @@ class SettingSwitch extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            value ? "On" : "Off",
+            value ? "off" : "on",
             style: const TextStyle(
               fontSize: 16,
               color: Colors.grey,

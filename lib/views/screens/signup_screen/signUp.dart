@@ -32,8 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 "Sign Up now to begin an amazing journey",
                 style: TextStyle(
                     fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                    fontWeight: FontWeight.w600,),
               ),
               SizedBox(height: 20,),
               ///Sign up title
@@ -41,8 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 "Let's create your account",
                 style: TextStyle(
                     fontSize: 24.0,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                    fontWeight: FontWeight.w600),
               ),
 
               SizedBox(

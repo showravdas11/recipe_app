@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:green_recipe/common/widgets/forward_button.dart';
 import 'package:green_recipe/common/widgets/setting_item.dart';
 import 'package:green_recipe/common/widgets/setting_switch.dart';
+import 'package:green_recipe/utils/theme/theme_provider.dart';
 import 'package:green_recipe/views/screens/editAccountScreen/edit_account_screen.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:provider/provider.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -13,7 +15,7 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  bool isDarkMode = false;
+  bool isDarkMode = true;
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +130,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   setState(() {
                     isDarkMode = value;
                   });
+                  Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
                 },
               ),
               const SizedBox(height: 20),
