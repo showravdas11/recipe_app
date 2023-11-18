@@ -5,9 +5,6 @@ import 'package:green_recipe/views/screens/home_screen/bottom_appbar.dart';
 import 'package:green_recipe/views/screens/login_screen/login.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
-
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
