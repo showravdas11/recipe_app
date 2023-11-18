@@ -15,7 +15,7 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  bool isDarkMode = true;
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -130,22 +130,14 @@ class _AccountScreenState extends State<AccountScreen> {
                   setState(() {
                     isDarkMode = value;
                   });
-                  Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+                  // Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
                 },
-              ),
-              const SizedBox(height: 20),
-              SettingItem(
-                title: "Help",
-                icon: Ionicons.nuclear,
-                bgColor: Colors.red.shade100,
-                iconColor: Colors.red,
-                onTap: () {},
               ),
               const SizedBox(height: 20),
               SettingItem(
                 title: "Logout",
                 icon: Ionicons.log_out_outline,
-                bgColor: Color.fromARGB(235, 225, 251, 137),
+                bgColor: Color.fromRGBO(225, 251, 137, 0.922),
                 iconColor: Color.fromARGB(255, 114, 148, 4),
                 onTap: () {},
               ),

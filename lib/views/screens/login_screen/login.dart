@@ -77,12 +77,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           keyboardType: TextInputType.text,
                           controller: emailController,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Iconsax.direct),
-                            labelText: "E-Mail",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                          ),
+                              prefixIcon: Icon(Iconsax.direct),
+                              labelText: "E-Mail",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Enter Your Email';
@@ -102,13 +111,22 @@ class _LoginScreenState extends State<LoginScreen> {
                           keyboardType: TextInputType.text,
                           controller: passwordController,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Iconsax.password_check),
-                            suffixIcon: Icon(Iconsax.eye_slash),
-                            labelText: "Password",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                          ),
+                              prefixIcon: Icon(Iconsax.password_check),
+                              suffixIcon: Icon(Iconsax.eye_slash),
+                              labelText: "Password",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Enter Your Password';

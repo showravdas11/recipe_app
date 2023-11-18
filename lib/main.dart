@@ -9,9 +9,9 @@ import 'package:provider/provider.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(),
-  child: const MyApp(),
-  ));
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,12 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      
-      //-----Recipe finder app theme work-----//
-      // themeMode: ThemeMode.system,
-      // theme: RecipeAppTheme.lightTheme,
-      // darkTheme: RecipeAppTheme.darkTheme,
-      theme: Provider.of<ThemeProvider>(context).themeData,
+      // theme: Provider.of<ThemeProvider>(context).themeData,
       home: Splash(),
     );
   }
