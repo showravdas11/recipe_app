@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 
 class EditAccountScreen extends StatefulWidget {
@@ -11,9 +14,10 @@ class EditAccountScreen extends StatefulWidget {
 }
 
 class _EditAccountScreenState extends State<EditAccountScreen> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  // TextEditingController nameController = TextEditingController();
+  // TextEditingController emailController = TextEditingController();
 
+  File ? _selectedImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +43,12 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 120,
-                    height: 120,
+                    width: 150,
+                    height: 150,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child:
-                          Image(image: AssetImage("assets/images/profile.jpg")),
+                      child:_selectedImage != null ? Image.file(_selectedImage!,fit: BoxFit.cover) : Text("please Select an image"),
+                                                
                     ),
                   ),
                   Positioned(
@@ -56,15 +60,21 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           color: Color.fromARGB(255, 150, 191, 13)),
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.white,
-                        size: 20,
+                      child: GestureDetector(
+                        child: Icon(
+                          Icons.camera_alt_outlined,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onTap: (() {
+                           _picImageFormGallery();
+                        }),
                       ),
                     ),
                   ),
                 ],
               ),
+              
               const SizedBox(
                 height: 50,
               ),
@@ -133,4 +143,11 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
       ),
     );
   }
+  Future _picImageFormGallery() async {
+      final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (returnedImage == null) return;
+      setState(() {
+        _selectedImage = File(returnedImage!.path);
+      });
+    }
 }
