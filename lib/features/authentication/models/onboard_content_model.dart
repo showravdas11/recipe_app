@@ -8,21 +8,21 @@ class UnboardingContent {
 
 List<UnboardingContent> contents = [
   UnboardingContent(
-    title: 'Delicious Food',
+    title: 'Welcome to Flavorful Discoveries',
     image: 'assets/images/onboard/Recipe book-pana.svg',
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Explore a world of culinary delights at your fingertips. Find mouthwatering recipes that cater to your cravings and bring the joy of cooking into your home.",
   ),
   UnboardingContent(
-    title: 'Healthy & Tasty',
+    title: 'Discover Delicious Recipes',
     image: 'assets/images/onboard/Recipe book-rafiki.svg',
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Explore a world of mouthwatering recipes curated just for you. From quick and easy meals to gourmet delights, find the perfect recipe to satisfy your cravings.",
   ),
   UnboardingContent(
-    title: "let's Cook...",
+    title: "Unleash Your Inner Chef",
     image: 'assets/images/onboard/Chef-bro.svg',
     discription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Ignite your passion for cooking! Our app provides easy-to-follow recipes, cooking tips, and a variety of cuisines. Turn your everyday meals into extraordinary dining experiences.",
   ),
 ];

@@ -50,20 +50,20 @@ class QuickAndFastList extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  width: 200,
+                  margin: const EdgeInsets.only(right: 15),
+                  width: 180,
                   child: Stack(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: double.infinity,
-                            height: 130,
+                            width: 180,
+                            height: 180,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
-                                image: AssetImage(foods[index].image),
+                                image: NetworkImage(foods[index].image),
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -84,6 +84,9 @@ class QuickAndFastList extends StatelessWidget {
                                 size: 18,
                                 color: Colors.grey.shade600,
                               ),
+                              const SizedBox(
+                                width: 1,
+                              ),
                               Text(
                                 "${foods[index].cal} Cal",
                                 style: TextStyle(
@@ -102,6 +105,9 @@ class QuickAndFastList extends StatelessWidget {
                                 Iconsax.clock,
                                 size: 18,
                                 color: Colors.grey.shade600,
+                              ),
+                              const SizedBox(
+                                width: 1,
                               ),
                               Text(
                                 "${foods[index].time} Min",
