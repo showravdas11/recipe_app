@@ -1,13 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
 import 'package:green_recipe/common/widgets/social_buttons.dart';
+import 'package:green_recipe/views/screens/forgedPassword/forget_password_screen.dart';
 import 'package:green_recipe/views/screens/home_screen/bottom_appbar.dart';
 import 'package:green_recipe/views/screens/signup_screen/signUp.dart';
-import 'package:lottie/lottie.dart';
 import 'package:green_recipe/common/widgets/toast/toast.dart';
 import 'package:green_recipe/utils/constants/colors.dart';
-import 'dart:ui';
 import 'package:iconsax/iconsax.dart';
 import 'package:green_recipe/utils/constants/sizes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final _sdf = Firebase.initializeApp();
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -38,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding:
@@ -79,12 +75,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           keyboardType: TextInputType.text,
                           controller: emailController,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Iconsax.direct),
-                            labelText: "E-Mail",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                          ),
+                              prefixIcon: Icon(Iconsax.direct),
+                              labelText: "E-Mail",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Enter Your Email';
@@ -104,13 +109,22 @@ class _LoginScreenState extends State<LoginScreen> {
                           keyboardType: TextInputType.text,
                           controller: passwordController,
                           decoration: InputDecoration(
-                            prefixIcon: Icon(Iconsax.password_check),
-                            suffixIcon: Icon(Iconsax.eye_slash),
-                            labelText: "Password",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                          ),
+                              prefixIcon: Icon(Iconsax.password_check),
+                              suffixIcon: Icon(Iconsax.eye_slash),
+                              labelText: "Password",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Enter Your Password';
@@ -129,7 +143,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             //forget password
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPasswordScreen()));
+                              },
                               child: Text(
                                 "Forget Password?",
                                 style: TextStyle(

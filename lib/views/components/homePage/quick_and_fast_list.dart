@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:green_recipe/features/authentication/models/home_foods.dart';
+import 'package:green_recipe/features/authentication/models/food.dart';
+import 'package:green_recipe/views/screens/home_screen/quick_foods_screen.dart';
+import 'package:green_recipe/views/screens/home_screen/recipe_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class QuickAndFastList extends StatelessWidget {
@@ -21,7 +23,10 @@ class QuickAndFastList extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const QuickFoodsScreen())),
               child: const Text(
                 "View All",
                 style: TextStyle(
@@ -37,93 +42,119 @@ class QuickAndFastList extends StatelessWidget {
           child: Row(
             children: List.generate(
               foods.length,
-              (index) => Container(
-                margin: const EdgeInsets.only(right: 10),
-                width: 200,
-                child: Stack(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: AssetImage(foods[index].image),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          foods[index].name,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Row(
-                          children: [
-                            Icon(
-                              Iconsax.flash_1,
-                              size: 18,
-                              color: Colors.grey.shade600,
-                            ),
-                            Text(
-                              "${foods[index].cal} Cal",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey.shade600,
+              (index) => GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RecipeScreen(food: foods[index]),
+                  ),
+                ),
+                child: Container(
+                  margin: const EdgeInsets.only(right: 15),
+                  width: 180,
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 180,
+                            height: 180,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                image: NetworkImage(foods[index].image),
+                                fit: BoxFit.fill,
                               ),
                             ),
-                            Text(
-                              " • ",
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.grey.shade600,
-                              ),
-                            ),
-                            Icon(
-                              Iconsax.clock,
-                              size: 18,
-                              color: Colors.grey.shade600,
-                            ),
-                            Text(
-                              "${foods[index].time} Min",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey.shade600,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Positioned(
-                      top: 1,
-                      right: 1,
-                      child: SizedBox(
-                        height: 45,
-                        width: 45, // Set the desired height
-                        child: Card(
-                          elevation: 1,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(200),
                           ),
-                          child: IconButton(
-                            onPressed: () {},
-                            iconSize: 20,
-                            icon: const Icon(Iconsax.heart),
-                            color: Colors.grey,
-                            splashRadius: 10,
+                          const SizedBox(height: 10),
+                          Text(
+                            foods[index].name,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Row(
+                            children: [
+                              Icon(
+                                Iconsax.flash_1,
+                                size: 18,
+                                color: Colors.grey.shade600,
+                              ),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Text(
+                                "${foods[index].cal} Cal",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey.shade600,
+                                ),
+                              ),
+                              Text(
+                                " • ",
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.grey.shade600,
+                                ),
+                              ),
+                              Icon(
+                                Iconsax.clock,
+                                size: 18,
+                                color: Colors.grey.shade600,
+                              ),
+                              const SizedBox(
+                                width: 1,
+                              ),
+                              Text(
+                                "${foods[index].time} Min",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey.shade600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      // ...
+
+                      Positioned(
+                        top: 1,
+                        right: 1,
+                        child: SizedBox(
+                          height: 45,
+                          width: 45,
+                          child: Card(
+                            elevation: 1,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(200),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                // Toggle the like status
+                                foods[index].isLiked = !foods[index].isLiked!;
+                              },
+                              icon: foods[index].isLiked!
+                                  ? const Icon(
+                                      Iconsax.heart5,
+                                      color: Colors.red,
+                                    )
+                                  : const Icon(Iconsax.heart),
+                              iconSize: 20,
+                              color: Colors.grey,
+                              splashRadius: 10,
+                            ),
                           ),
                         ),
                       ),
-                    )
-                  ],
+
+                      // ...
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_recipe/common/widgets/toast/toast.dart';
 import 'package:green_recipe/views/screens/login_screen/login.dart';
-import 'package:iconsax/iconsax.dart';
 
 class HomeAppbar extends StatefulWidget {
   const HomeAppbar({
@@ -15,6 +14,7 @@ class HomeAppbar extends StatefulWidget {
 
 class _HomeAppbarState extends State<HomeAppbar> {
   final auth = FirebaseAuth.instance;
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
@@ -25,13 +25,19 @@ class _HomeAppbarState extends State<HomeAppbar> {
         ),
         const Spacer(),
         Card(
-          child: IconButton(onPressed: (){
-              auth.signOut().then((value){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
-              }).onError((error, stackTrace){
-                Utils.toastMessage(error.toString());
-              });
-            }, icon: Icon(Icons.logout_outlined)),
+          child: IconButton(
+              onPressed: () {
+                auth.signOut().then((value) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ));
+                }).onError((error, stackTrace) {
+                  Utils.toastMessage(error.toString());
+                });
+              },
+              icon: const Icon(Icons.logout_outlined)),
         )
       ],
     );

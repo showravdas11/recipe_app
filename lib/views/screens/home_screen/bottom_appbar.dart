@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_recipe/views/screens/home_screen/home_screen.dart';
+import 'package:green_recipe/views/screens/settingScreen/setting_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MainScreen extends StatefulWidget {
@@ -15,15 +17,19 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     Scaffold(),
     Scaffold(),
-    Scaffold(),
+    AccountScreen()
   ];
-
+  // bool isDarkMode = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
+          // color: Theme.of(context).colorScheme.primary,
+          // color: isDarkMode
+          // ? Theme.of(context).colorScheme.primary// Dark mode background color
+          // : Colors.white,
           elevation: 0.0,
           height: 70,
           child: Row(
