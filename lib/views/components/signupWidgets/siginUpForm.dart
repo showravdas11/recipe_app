@@ -48,12 +48,18 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               expands: false,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.user),
-                labelText: "User Name",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
+                  prefixIcon: Icon(Iconsax.user),
+                  labelText: "User Name",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  floatingLabelStyle:
+                      const TextStyle(color: Color.fromARGB(255, 150, 191, 13)),
+                  floatingLabelAlignment: FloatingLabelAlignment.start,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter User Name';
@@ -71,12 +77,18 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               controller: emailController,
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.direct),
-                labelText: "E-Mail",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
+                  prefixIcon: Icon(Iconsax.direct),
+                  labelText: "E-Mail",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  floatingLabelStyle:
+                      const TextStyle(color: Color.fromARGB(255, 150, 191, 13)),
+                  floatingLabelAlignment: FloatingLabelAlignment.start,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter Your Email';
@@ -96,13 +108,19 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               controller: passwordController,
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                suffixIcon: Icon(Iconsax.eye_slash),
-                labelText: "Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
+                  prefixIcon: Icon(Iconsax.password_check),
+                  suffixIcon: Icon(Iconsax.eye_slash),
+                  labelText: "Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  floatingLabelStyle:
+                      const TextStyle(color: Color.fromARGB(255, 150, 191, 13)),
+                  floatingLabelAlignment: FloatingLabelAlignment.start,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter Your Password';
@@ -123,27 +141,32 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
             ),
 
             //Sign up button
-            RoundedButton(title: "Create Account", loading: loading,
+            RoundedButton(
+              title: "Create Account",
+              loading: loading,
               onTap: () {
                 if (_formKey.currentState!.validate()) {
                   setState(() {
                     loading = true;
                   });
-                  _auth.createUserWithEmailAndPassword(
+                  _auth
+                      .createUserWithEmailAndPassword(
                     email: emailController.text.toString(),
                     password: passwordController.text.toString(),
-                  ).then((value) {
+                  )
+                      .then((value) {
                     setState(() {
-                    loading = false;
-                  });
-                  }).onError((error, stackTrace){
+                      loading = false;
+                    });
+                  }).onError((error, stackTrace) {
                     Utils.toastMessage(error.toString());
                     setState(() {
-                    loading = false;
-                  });
+                      loading = false;
+                    });
                   });
                 }
-              },),
+              },
+            ),
 
             SizedBox(
               height: RecipeAppSizes.spaceBtwSections,

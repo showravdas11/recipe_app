@@ -26,7 +26,7 @@ class RecipeTermsCondition extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.w500,
-                color: Colors.black.withOpacity(0.5),
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ]),
