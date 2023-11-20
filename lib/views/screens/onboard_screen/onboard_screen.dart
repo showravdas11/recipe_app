@@ -5,9 +5,6 @@ import 'package:green_recipe/views/screens/home_screen/bottom_appbar.dart';
 import 'package:green_recipe/views/screens/login_screen/login.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:green_recipe/common/widgets/commonButton/rounded.dart';
-
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -60,8 +57,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
                       Text(
                         contents[i].title,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
-                          fontSize: 35,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 150, 191, 13),
                         ),
@@ -72,8 +70,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       Text(
                         contents[i].discription,
                         textAlign: TextAlign.center,
-                        style:
-                            const TextStyle(fontSize: 18, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: 15, color: Colors.grey.shade600),
                       ),
                     ],
                   ),
