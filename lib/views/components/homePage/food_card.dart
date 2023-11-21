@@ -84,86 +84,91 @@ class FoodCard extends StatelessWidget {
                 const SizedBox(
                   width: 15,
                 ),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 25),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          food.name,
-                          // ignore: prefer_const_constructors
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Iconsax.flash_1,
-                              size: 18,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "${food.cal}",
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            const Icon(
-                              Iconsax.clock,
-                              size: 18,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "${food.time} Min",
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Iconsax.star5,
-                              color: Color.fromARGB(255, 250, 161, 07),
-                              size: 18,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "${food.rate}/5",
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "${food.reviews} Reviews",
+                Expanded(
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              food.name,
+                              overflow: TextOverflow.ellipsis,
+                              // ignore: prefer_const_constructors
                               style: TextStyle(
-                                  fontSize: 12, color: Colors.grey.shade600),
-                            )
-                          ],
-                        )
-                      ],
-                    ))
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Iconsax.flash_1,
+                                size: 18,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "${food.cal}",
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              const Icon(
+                                Iconsax.clock,
+                                size: 18,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "${food.time} Min",
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Iconsax.star5,
+                                color: Color.fromARGB(255, 250, 161, 07),
+                                size: 18,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "${food.rate}/5",
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "${food.reviews} Reviews",
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.grey.shade600),
+                              )
+                            ],
+                          )
+                        ],
+                      )),
+                )
               ],
             ),
           ),

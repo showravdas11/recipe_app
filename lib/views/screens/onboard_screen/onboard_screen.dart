@@ -7,7 +7,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+  const OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
@@ -33,6 +33,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     final auth = FirebaseAuth.instance;
     final user = auth.currentUser;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         children: [
@@ -47,14 +49,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               },
               itemBuilder: (_, i) {
                 return Padding(
-                  padding: const EdgeInsets.all(40),
+                  padding: EdgeInsets.all(screenHeight * 0.04),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
                         contents[i].image,
-                        height: 350,
-                        width: 350,
+                        height: screenHeight * 0.4,
+                        width: screenHeight * 0.4,
                       ),
+                      const SizedBox(height: 10),
                       Text(
                         contents[i].title,
                         textAlign: TextAlign.center,
@@ -64,14 +68,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           color: Color.fromARGB(255, 150, 191, 13),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       Text(
                         contents[i].discription,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 15, color: Colors.grey.shade600),
+                          fontSize: 15,
+                          color: Colors.grey.shade600,
+                        ),
                       ),
                     ],
                   ),
@@ -86,11 +90,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               (index) => buildDot(index, context),
             ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
           Padding(
-            padding: const EdgeInsets.all(40),
+            padding: EdgeInsets.all(40),
             child: SizedBox(
               height: 60,
               width: double.infinity,

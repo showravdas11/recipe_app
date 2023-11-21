@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:green_recipe/features/authentication/models/food.dart';
+import 'package:green_recipe/views/screens/home_screen/elevationbottom.dart';
+import 'package:green_recipe/views/screens/home_screen/instructions_screen.dart';
 import 'package:green_recipe/views/screens/home_screen/recipe_appbar.dart';
 import 'package:iconsax/iconsax.dart';
 
 class RecipeScreen extends StatefulWidget {
   final Food food;
-  const RecipeScreen({super.key, required this.food});
+  const RecipeScreen({Key? key, required this.food}) : super(key: key);
 
   @override
   State<RecipeScreen> createState() => _RecipeScreenState();
@@ -197,43 +199,25 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 15,
                   ),
                   Text(
                     widget.food.ingredients
                         .map((ingredient) =>
-                            '$ingredient\n\n') // Add double line break after each ingredient
+                            '$ingredient\n') // Add double line break after each ingredient
                         .join(),
                     style: TextStyle(fontSize: 15, color: Colors.grey.shade600),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(40),
-              child: SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () {
-                    // Add your button click logic here
-                  },
-                  style: TextButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(60),
-                    ),
-                    backgroundColor: const Color.fromARGB(255, 150, 191, 13),
-                  ),
-                  child: const Text(
-                    "See Instructions", // Add your button text here
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            Column(
+              children: [
+                CustomElevatedButton(
+                  food: widget.food,
+                )
+              ],
+            )
           ],
         ),
       ),
