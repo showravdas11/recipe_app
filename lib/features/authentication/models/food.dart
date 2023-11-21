@@ -34,18 +34,9 @@ final List<Food> foods = [
     rate: 4.5,
     reviews: 23,
     isLiked: false,
-    instructions: """
-        Place the raisins and prunes into a small bowl and pour over enough water to cover. Add lemon juice and let soak for at least 1 hour. Drain. Roughly chop the prunes.
-        Meanwhile, heat the butter in a large pan, add the onion, and cook for 5 minutes.
-        Add cubed lamb, ground lamb, and crushed garlic cloves.
-        Fry for 5 minutes, stirring constantly until browned.
-        Pour 2/3 cup (150 milliliters) of stock into the pan.
-        Bring to a boil, then lower the heat, cover, and simmer for 1 hour, or until the lamb is tender.
-        Add the remaining stock and bring to a boil.
-        Add rinsed long-grain white rice and a large pinch of saffron.
-        Stir, then cover, and simmer for 15 minutes, or until the rice is tender.
-        Add the drained raisins, drained chopped prunes, and salt and pepper to taste.
-        Heat through for a few minutes, then turn out onto a warmed serving dish and garnish with sprigs of flat-leaf parsley.
+    instructions:
+        """Place the raisins and prunes into a small bowl and pour over enough water to cover. Add lemon juice and let soak for at least 1 hour. Drain. Roughly chop the prunes. Meanwhile, heat the butter in a large pan, add the onion, and cook for 5 minutes. Add cubed lamb, ground lamb, and crushed garlic cloves. Fry for 5 minutes, stirring constantly until browned. Pour 2/3 cup (150 milliliters) of stock into the pan. Bring to a boil, then lower the heat, cover, and simmer for 1 hour, or until the lamb is tender. Add the remaining stock and bring to a boil. Add rinsed long-grain white rice and a large pinch of saffron. Stir, then cover, and simmer for 15 minutes, or until the rice is tender. Add the drained raisins, drained chopped prunes, and salt and pepper to taste. Heat through for a few minutes, then turn out onto a warmed serving dish and garnish with sprigs of flat-leaf parsley.
+        
 """,
     ingredients: [
       "50g Lamb",
@@ -111,7 +102,7 @@ final List<Food> foods = [
   ),
   Food(
     id: 3,
-    name: "Alfredo Primavera",
+    name: "Chicken Alfredo Primavera",
     image: "https://i.ibb.co/F59wF8N/syqypv1486981727.jpg",
     cal: 600,
     time: 40,
@@ -162,7 +153,7 @@ final List<Food> foods = [
   ),
   Food(
     id: 4,
-    name: "Mushroom Hotpot",
+    name: "Chicken & mushroom Hotpot",
     image: "https://i.ibb.co/wYvwc1t/uuuspp1511297945.jpg",
     cal: 400,
     time: 35,
@@ -243,7 +234,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 6,
-    name: "Kentucky Chicken",
+    name: "Kentucky Fried Chicken",
     image: "https://www.themealdb.com/images/media/meals/xqusqy1487348868.jpg",
     cal: 500,
     time: 20,
@@ -267,7 +258,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 7,
-    name: "Baked salmon",
+    name: "Baked salmon with fennel & tomatoes",
     image: "https://i.ibb.co/6ZZQ5hj/1548772327.jpg",
     cal: 400,
     time: 30,
@@ -334,7 +325,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 9,
-    name: "Teriyaki Salmon",
+    name: "Honey Teriyaki Salmon",
     image: "https://i.ibb.co/t4nw01K/xxyupu1468262513.jpg",
     cal: 200,
     time: 15,
@@ -457,7 +448,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 12,
-    name: "Broccoli & Stilton soup".substring(0, 19),
+    name: "Broccoli & Stilton soup",
     image: "https://i.ibb.co/XYRV03n/tvvxpv1511191952.jpg",
     cal: 600,
     time: 20,
@@ -880,7 +871,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 22,
-    name: "Chocolate Raspberry",
+    name: "Chocolate Raspberry Brownies",
     image: "https://i.ibb.co/JnK8Mjp/yypvst1511386427.jpg",
     cal: 50,
     time: 60,
@@ -913,7 +904,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 23,
-    name: "Chocolate Avocado",
+    name: "Chocolate Avocado Mousse",
     image: "https://i.ibb.co/CQk3gkq/uttuxy1511382180.jpg",
     cal: 200,
     time: 45,
@@ -1030,7 +1021,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 26,
-    name: "Cheese Sandwich",
+    name: "Grilled Mac and Cheese Sandwich",
     image: "https://i.ibb.co/hy8qMxR/xutquv1505330523.jpg",
     cal: 50,
     time: 20,
