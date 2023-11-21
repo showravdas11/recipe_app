@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_recipe/features/authentication/models/food.dart';
 import 'package:green_recipe/views/screens/home_screen/elevationbottom.dart';
-import 'package:green_recipe/views/screens/home_screen/instructions_screen.dart';
+
 import 'package:green_recipe/views/screens/home_screen/recipe_appbar.dart';
 import 'package:iconsax/iconsax.dart';
 
