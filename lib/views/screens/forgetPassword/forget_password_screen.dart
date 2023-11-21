@@ -19,6 +19,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+    color: Colors.black, //change your color here
+  ),
+        elevation: 0,
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(

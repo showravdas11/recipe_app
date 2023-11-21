@@ -90,10 +90,9 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(
-                          height: 120,
-                          width: 100,
+                        Expanded(
                           child: Container(
+                            height: 120,
                             margin: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Colors.green.shade50,
@@ -113,18 +112,18 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                 Text(
                                   "${widget.food.cal} Cal",
                                   style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 150, 191, 13)),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 150, 191, 13),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 120,
-                          width: 100,
+                        Expanded(
                           child: Container(
+                            height: 120,
                             margin: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Colors.red.shade50,
@@ -144,18 +143,18 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                 Text(
                                   "${widget.food.time} Min",
                                   style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 232, 86, 89)),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 232, 86, 89),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 120,
-                          width: 100,
+                        Expanded(
                           child: Container(
+                            height: 120,
                             margin: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: Colors.orange.shade50,
@@ -175,9 +174,10 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                 Text(
                                   "${widget.food.rate}/5",
                                   style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 250, 161, 7)),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 250, 161, 7),
+                                  ),
                                 ),
                               ],
                             ),
