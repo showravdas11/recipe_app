@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green_recipe/common/widgets/forward_button.dart';
 import 'package:green_recipe/common/widgets/setting_item.dart';
 import 'package:green_recipe/common/widgets/setting_switch.dart';
+import 'package:green_recipe/common/widgets/toast/toast.dart';
+import 'package:green_recipe/features/authentication/controllers/user_controller.dart';
 import 'package:green_recipe/utils/theme/theme_provider.dart';
 import 'package:green_recipe/views/screens/editAccountScreen/edit_account_screen.dart';
+import 'package:green_recipe/views/screens/login_screen/login.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +20,8 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen> {
   bool isDarkMode = false;
+  // final auth = FirebaseAuth.instance;
+  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,10 @@ class _AccountScreenState extends State<AccountScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Ionicons.chevron_back_outline, color: Colors.black,),
+          icon: const Icon(
+            Ionicons.chevron_back_outline,
+            color: Colors.black,
+          ),
         ),
         leadingWidth: 80,
       ),
@@ -42,7 +51,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height:40),
+              const SizedBox(height: 40),
               const Text(
                 "Account",
                 style: TextStyle(
@@ -55,16 +64,16 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: double.infinity,
                 child: Row(
                   children: [
-                    Image(
-                      height: 70, width: 70,
-                      image: AssetImage("assets/images/profile.jpg"),
+                    CircleAvatar(
+                      foregroundImage:
+                          NetworkImage(UserController.user?.photoURL ?? ''),
                     ),
                     const SizedBox(width: 20),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Sakura",
+                          UserController.user?.displayName ?? '',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
@@ -72,7 +81,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          "example@gmail.com",
+                          UserController.user?.email ?? '',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey,
@@ -134,12 +143,25 @@ class _AccountScreenState extends State<AccountScreen> {
                 },
               ),
               const SizedBox(height: 20),
-              SettingItem(
-                title: "Logout",
-                icon: Ionicons.log_out_outline,
-                bgColor: Color.fromRGBO(225, 251, 137, 0.922),
-                iconColor: Color.fromARGB(255, 114, 148, 4),
-                onTap: () {},
+              GestureDetector(
+                onTap: () {
+                  auth.signOut().then((value) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ));
+                  }).onError((error, stackTrace) {
+                    Utils.toastMessage(error.toString());
+                  });
+                },
+                child: SettingItem(
+                  title: "Logout",
+                  icon: Ionicons.log_out_outline,
+                  bgColor: Color.fromRGBO(225, 251, 137, 0.922),
+                  iconColor: Color.fromARGB(255, 114, 148, 4),
+                  onTap: () {},
+                ),
               ),
             ],
           ),
