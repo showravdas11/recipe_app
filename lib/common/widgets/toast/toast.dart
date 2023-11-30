@@ -2,7 +2,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
-
   static toastMessage(String message) {
     Fluttertoast.showToast(
         msg: message,
@@ -11,8 +10,6 @@ class Utils {
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.red,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
-
 }
