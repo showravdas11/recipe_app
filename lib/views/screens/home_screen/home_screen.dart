@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }).toList(),
                 options: CarouselOptions(
-                  height: 220,
+                  height: 200,
                   viewportFraction: 1,
                   initialPage: 0,
                   enableInfiniteScroll: true,

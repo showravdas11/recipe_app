@@ -68,30 +68,141 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Form(
                   key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextFormField(
-                        expands: false,
-                        keyboardType: TextInputType.text,
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          prefixIcon: const Icon(Iconsax.direct),
-                          labelText: "E-Mail",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                            color: Color.fromARGB(255, 150, 191, 13),
-                          ),
-                          floatingLabelAlignment: FloatingLabelAlignment.start,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(100),
-                            borderSide: const BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 150, 191, 13),
-                            ),
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 32.0),
+                    child: Column(
+                      children: [
+                        // Email
+                        TextFormField(
+                          expands: false,
+                          keyboardType: TextInputType.text,
+                          controller: emailController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Iconsax.direct),
+                              labelText: "E-Mail",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Your Email';
+                            }
+                            return null;
+                          },
+                        ),
+
+                        SizedBox(
+                          height: 19.0,
+                        ),
+
+                        // password
+
+                        TextFormField(
+                          expands: false,
+                          keyboardType: TextInputType.text,
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Iconsax.password_check),
+                              suffixIcon: Icon(Iconsax.eye_slash),
+                              labelText: "Password",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              floatingLabelStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 150, 191, 13)),
+                              floatingLabelAlignment:
+                                  FloatingLabelAlignment.start,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color:
+                                          Color.fromARGB(255, 150, 191, 13)))),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Your Password';
+                            }
+                            return null;
+                          },
+                        ),
+
+                        SizedBox(
+                          height: 8.0,
+                        ),
+
+                        // remember me and forget password
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            //forget password
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ForgetPasswordScreen()));
+                              },
+                              child: Text(
+                                "Forget Password?",
+                                style: TextStyle(
+                                    fontSize: RecipeAppSizes.fontSizeMd,
+                                    fontWeight: FontWeight.w600,
+                                    color: RecipeAppColors.textSecondary),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+
+                        //sign in button
+                        RoundedButton(
+                            title: "Sign In",
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                setState(() {
+                                  loading = true;
+                                });
+                                _auth
+                                    .signInWithEmailAndPassword(
+                                        email: emailController.text.toString(),
+                                        password:
+                                            passwordController.text.toString())
+                                    .then((value) {
+                                  Utils.toastMessage(
+                                      value.user!.email.toString());
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MainScreen(),
+                                      ));
+                                  setState(() {
+                                    loading = false;
+                                  });
+                                }).onError((error, stackTrace) {
+                                  debugPrint(error.toString());
+                                  Utils.toastMessage(error.toString());
+                                  setState(() {
+                                    loading = false;
+                                  });
+                                });
+                              }
+                            }),
+
+                        SizedBox(
+                          height: 16.0,
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
