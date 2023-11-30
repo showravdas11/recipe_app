@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_recipe/views/screens/favorites_screen.dart';
 import 'package:green_recipe/views/screens/home_screen/home_screen.dart';
 import 'package:green_recipe/views/screens/settingScreen/setting_screen.dart';
 import 'package:green_recipe/views/screens/shopping/shopping_list_screen.dart';
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   int currentTab = 0;
   List screens = [
     const HomeScreen(),
-    const Scaffold(),
+    const FavoritesScreen(),
     const ShoppingScreen(),
     const AccountScreen()
   ];
@@ -142,8 +143,4 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-}
-
-class ShoppingListScreen {
-  const ShoppingListScreen();
 }

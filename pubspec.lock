@@ -102,7 +102,7 @@ packages:
     description:
       name: cloud_firestore
       sha256: fabfa9b20e752ea55841b0177620a817baf3c7cd12854f339f7daadb6969ee5a
-      url: "https://pub.dev"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.13.1"
   cloud_firestore_platform_interface:
@@ -110,7 +110,7 @@ packages:
     description:
       name: cloud_firestore_platform_interface
       sha256: "32cfa6cebf3408e541f074083fa429505af855896425eeab1c4f13edc3f68450"
-      url: "https://pub.dev"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.0.5"
   cloud_firestore_web:
@@ -118,7 +118,7 @@ packages:
     description:
       name: cloud_firestore_web
       sha256: d8e36c1a60c69eb6d5bc239e497a1f284627ef8eb42258776bbfc98ce615e869
-      url: "https://pub.dev"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.8.5"
   collection:
@@ -560,6 +560,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  path_provider_linux:
+    dependency: transitive
+    description:
+      name: path_provider_linux
+      sha256: f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22e241a8b301bf5cac3279
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.2.1"
+  path_provider_platform_interface:
+    dependency: transitive
+    description:
+      name: path_provider_platform_interface
+      sha256: "94b1e0dd80970c1ce43d5d4e050a9918fce4f4a775e6142424c30a29a363265c"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.1"
+  path_provider_windows:
+    dependency: transitive
+    description:
+      name: path_provider_windows
+      sha256: "8bc9f22eee8690981c22aa7fc602f5c85b497a6fb2ceb35ee5a5e5ed85ad8170"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.2.1"
   petitparser:
     dependency: transitive
     description:
