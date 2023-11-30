@@ -159,7 +159,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   title: "Logout",
                   icon: Ionicons.log_out_outline,
                   bgColor: Color.fromRGBO(225, 251, 137, 0.922),
-                  iconColor: Color.fromARGB(255, 114, 148, 4),
+                  iconColor: Color.fromARGB(255, 114, 148, 4), 
                   onTap: () {},
                 ),
               ),
