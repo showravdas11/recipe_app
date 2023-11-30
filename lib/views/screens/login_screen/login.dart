@@ -67,7 +67,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 Form(
-                  key: _formKey,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 32.0),
                     child: Column(
@@ -100,13 +99,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                         ),
-
+                  
                         SizedBox(
                           height: 19.0,
                         ),
-
+                  
                         // password
-
+                  
                         TextFormField(
                           expands: false,
                           keyboardType: TextInputType.text,
@@ -135,11 +134,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                         ),
-
+                  
                         SizedBox(
                           height: 8.0,
                         ),
-
+                  
                         // remember me and forget password
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -166,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 16,
                         ),
-
+                  
                         //sign in button
                         RoundedButton(
                             title: "Sign In",
@@ -200,17 +199,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                               }
                             }),
-
+                  
                         SizedBox(
                           height: 16.0,
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Enter Your Email';
-                          }
-                          return null;
-                        },
-                      ),
                       const SizedBox(
                         height: 16.0,
                       ),
@@ -341,9 +333,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: RecipeAppSizes.spaceBtwSections,
+                                  ),
                 ),
                 // Divider
                 Row(
