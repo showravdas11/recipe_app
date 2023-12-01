@@ -111,7 +111,6 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               obscureText: !_isPasswordVisible,
               controller: passwordController,
-              obscureText: true,
               decoration: InputDecoration(
                   prefixIcon: Icon(Iconsax.password_check),
                   suffixIcon: IconButton(
