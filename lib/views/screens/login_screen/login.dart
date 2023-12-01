@@ -18,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isPasswordVisible = false;
   bool loading = false;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -41,13 +42,16 @@ class _LoginScreenState extends State<LoginScreen> {
               EdgeInsets.only(top: 56.0, left: 24.0, right: 24.0, bottom: 24.0),
           child: SafeArea(
             child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Welcome back,",
+                  "Welcome back",
                   style: TextStyle(
-                    fontSize: 27,
+                    fontSize: MediaQuery.of(context).size.width > 600 ? 35 : 35,
                     fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 150, 191, 13),
                   ),
                 ),
                 SizedBox(
@@ -55,7 +59,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Text(
                   "Good Food Good Mood, Sign into your Account",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width > 600 ? 15 : 15,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
 
                 SizedBox(
@@ -107,10 +114,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           expands: false,
                           keyboardType: TextInputType.text,
+                          obscureText: !_isPasswordVisible,
                           controller: passwordController,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Iconsax.password_check),
-                              suffixIcon: Icon(Iconsax.eye_slash),
+                              suffixIcon: IconButton(
+                                icon: Icon(_isPasswordVisible
+                                    ? Iconsax.eye
+                                    : Iconsax.eye_slash),
+                                onPressed: () {
+                                  setState(() {
+                                    _isPasswordVisible = !_isPasswordVisible;
+                                  });
+                                },
+                              ),
                               labelText: "Password",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(100),
@@ -167,6 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         //sign in button
                         RoundedButton(
                             title: "Sign In",
+                            loading: loading,
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 setState(() {
@@ -195,6 +213,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     loading = false;
                                   });
                                 });
+                                emailController.clear();
+                                passwordController.clear();
                               }
                             }),
 

@@ -18,10 +18,12 @@ class RecipeSignUpForm extends StatefulWidget {
 }
 
 class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
+  bool _isPasswordVisible = false;
   bool loading = false;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final userNameController = TextEditingController();
 
   FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -47,6 +49,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
             TextFormField(
               expands: false,
               keyboardType: TextInputType.text,
+              controller: userNameController,
               decoration: InputDecoration(
                   prefixIcon: Icon(Iconsax.user),
                   labelText: "User Name",
@@ -106,10 +109,19 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
             TextFormField(
               expands: false,
               keyboardType: TextInputType.text,
+              obscureText: !_isPasswordVisible,
               controller: passwordController,
               decoration: InputDecoration(
                   prefixIcon: Icon(Iconsax.password_check),
-                  suffixIcon: Icon(Iconsax.eye_slash),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                        _isPasswordVisible ? Iconsax.eye : Iconsax.eye_slash),
+                    onPressed: () {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    },
+                  ),
                   labelText: "Password",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(100),
@@ -164,6 +176,9 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                       loading = false;
                     });
                   });
+                  emailController.clear();
+                  passwordController.clear();
+                  userNameController.clear();
                 }
               },
             ),

@@ -1,10 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:green_recipe/firebase_options.dart';
-import 'package:green_recipe/utils/theme/theme.dart';
-import 'package:green_recipe/utils/theme/theme_provider.dart';
 import 'package:green_recipe/views/screens/splashScreen/splash_screen.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 
 void main() {

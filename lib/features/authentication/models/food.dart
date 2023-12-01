@@ -241,19 +241,34 @@ Scatter with the lime garnish and serve immediately with boiled rice.
     rate: 3.5,
     reviews: 23,
     isLiked: true,
-    instructions:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    instructions: """ Preheat fryer to 350°F.
+Thoroughly mix together all the spice mix ingredients.
+Combine spice mix with flour, brown sugar and salt.
+Dip chicken pieces in egg white to lightly coat them, then transfer to flour mixture.
+Turn a few times and make sure the flour mix is really stuck to the chicken.
+Repeat with all the chicken pieces.
+Let chicken pieces rest for 5 minutes so crust has a chance to dry a bit.
+Fry chicken in batches.
+Breasts and wings should take 12-14 minutes, and legs and thighs will need a few more minutes.
+Chicken pieces are done when a meat thermometer inserted into the thickest part reads 165°F.
+Let chicken drain on a few paper towels when it comes out of the fryer.
+Serve hot.""",
     ingredients: [
-      "50g Lamb",
-      "1 tbs Lemon Juice",
+      "1 whole Chicken",
+      "2 quarts neutral frying Oil",
       "2 tbs Butter",
-      "1 chopped Onion",
-      "450g Lamb",
-      "2 cloves Garlic",
-      "600ml Vegetable Stock",
-      "2 cups Rice",
-      "Pinch Saffron",
-      "Garnish Parsley",
+      "1 1/2 cups Flour",
+      "1 tablespoon Brown Sugar",
+      "1 tablespoon Salt",
+      "1 tablespoon paprika",
+      "2 teaspoons onion salt",
+      "1 teaspoon chili powder",
+      "1 teaspoon black pepper",
+      "1/2 teaspoon celery salt",
+      "1/2 teaspoon sage",
+      "1/2 teaspoon garlic powder",
+      "1/2 teaspoon allspice",
+      "1/2 teaspoon oregano",
     ],
   ),
   Food(
@@ -289,7 +304,7 @@ Scatter with the lime garnish and serve immediately with boiled rice.
   ),
   Food(
     id: 8,
-    name: "Fish Soup ",
+    name: "Fish Soup",
     image: "https://i.ibb.co/Fg0SCnh/7n8su21699013057.jpg",
     cal: 500,
     time: 30,
