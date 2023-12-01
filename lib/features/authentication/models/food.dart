@@ -27,28 +27,23 @@ class Food {
 final List<Food> foods = [
   Food(
     id: 1,
-    name: "Lamb Pilaf (Plov)",
-    image: "https://i.ibb.co/93r3h0d/kos9av1699014767.jpg",
+    name: "Blini Pancakes",
+    image: "https://www.themealdb.com/images/media/meals/0206h11699013358.jpg",
     cal: 500,
     time: 40,
     rate: 4.5,
     reviews: 23,
     isLiked: false,
     instructions:
-        """Place the raisins and prunes into a small bowl and pour over enough water to cover. Add lemon juice and let soak for at least 1 hour. Drain. Roughly chop the prunes. Meanwhile, heat the butter in a large pan, add the onion, and cook for 5 minutes. Add cubed lamb, ground lamb, and crushed garlic cloves. Fry for 5 minutes, stirring constantly until browned. Pour 2/3 cup (150 milliliters) of stock into the pan. Bring to a boil, then lower the heat, cover, and simmer for 1 hour, or until the lamb is tender. Add the remaining stock and bring to a boil. Add rinsed long-grain white rice and a large pinch of saffron. Stir, then cover, and simmer for 15 minutes, or until the rice is tender. Add the drained raisins, drained chopped prunes, and salt and pepper to taste. Heat through for a few minutes, then turn out onto a warmed serving dish and garnish with sprigs of flat-leaf parsley.
-        
-""",
+        """In a large bowl, whisk together 1/2 cup buckwheat flour, 2/3 cup all-purpose flour, 1/2 teaspoon salt, and 1 teaspoon yeast. Make a well in the center and pour in 1 cup warm milk, whisking until the batter is smooth. Cover the bowl and let the batter rise until doubled, about 1 hour.Enrich and Rest the Batter Stir 2 tablespoons melted butter and 1 egg yolk into the batter. In a separate bowl, whisk 1 egg white until stiff, but not dry. Fold the whisked egg white into the batter. Cover the bowl and let the batter stand 20 minutes. Pan-Fry the Blini Heat butter in a large nonstick skillet over medium heat. Drop quarter-sized dollops of batter into the pan, being careful not to overcrowd the pan. Cook for about 1 minute or until bubbles form. Turn and cook for about 30 additional seconds. Remove the finished blini onto a plate and cover them with a clean kitchen towel to keep warm. Add more butter to the pan and repeat the frying process with the remaining batter.""",
     ingredients: [
-      "50g Lamb",
-      "1 tbs Lemon Juice",
+      "1/2 cup Buckwheat",
+      "2/3 Cup Flour",
+      "1/2 tsp Salt",
+      "1 tsp Yeast",
+      "1 cup Milk",
       "2 tbs Butter",
-      "1 chopped Onion",
-      "450g Lamb",
-      "2 cloves Garlic",
-      "600ml Vegetable Stock",
-      "2 cups Rice",
-      "Pinch Saffron",
-      "Garnish Parsley",
+      "1 Seperated Egg",
     ],
   ),
   Food(
@@ -60,28 +55,8 @@ final List<Food> foods = [
     rate: 4.7,
     reviews: 23,
     isLiked: true,
-    instructions: """
-      Take a large pot or wok, big enough to cook all the chicken, and heat the oil in it.
-      Once the oil is hot, add sliced onion and fry them until deep golden brown.
-      Then take them out on a plate and set aside.
-      To the same pot, add the chopped garlic and sauté for a minute.
-      Then add the chopped tomatoes and cook until tomatoes turn soft.
-      This would take about 5 minutes.
-      Then return the fried onion to the pot and stir.
-      Add ginger paste and sauté well.
-      Now add the cumin seeds, half of the coriander seeds and chopped green chillies.
-      Give them a quick stir.
-      Next goes in the spices – turmeric powder and red chilli powder.
-      Sauté the spices well for couple of minutes.
-      Add the chicken pieces to the wok, season it with salt to taste and cook the chicken covered on medium-low heat until the chicken is almost cooked through.
-      This would take about 15 minutes.
-      Slowly sautéing the chicken will enhance the flavor, so do not expedite this step by putting it on high heat.
-      When the oil separates from the spices, add the beaten yogurt keeping the heat on lowest so that the yogurt doesn’t split.
-      Sprinkle the remaining coriander seeds and add half of the dried fenugreek leaves.
-      Mix well.
-      Finally add the cream and give a final mix to combine everything well.
-      Sprinkle the remaining kasuri methi and garam masala and serve the chicken handi hot with naan or rotis.
-      Enjoy!""",
+    instructions:
+        """Take a large pot or wok, big enough to cook all the chicken, and heat the oil in it. Once the oil is hot, add sliced onion and fry them until deep golden brown. Then take them out on a plate and set aside. To the same pot, add the chopped garlic and sauté for a minute. Then add the chopped tomatoes and cook until tomatoes turn soft. This would take about 5 minutes. Then return the fried onion to the pot and stir. Add ginger paste and sauté well. Now add the cumin seeds, half of the coriander seeds and chopped green chillies. Give them a quick stir. Next goes in the spices – turmeric powder and red chilli powder. Sauté the spices well for couple of minutes. Add the chicken pieces to the wok, season it with salt to taste and cook the chicken covered on medium-low heat until the chicken is almost cooked through. This would take about 15 minutes. Slowly sautéing the chicken will enhance the flavor, so do not expedite this step by putting it on high heat. When the oil separates from the spices, add the beaten yogurt keeping the heat on lowest so that the yogurt doesn’t split. Sprinkle the remaining coriander seeds and add half of the dried fenugreek leaves. Mix well. Finally add the cream and give a final mix to combine everything well. Sprinkle the remaining kasuri methi and garam masala and serve the chicken handi hot with naan or rotis. Enjoy!""",
     ingredients: [
       "1.2 kg Chicken",
       "5 thinly sliced Onion",
@@ -347,15 +322,8 @@ Serve hot.""",
     rate: 4.7,
     reviews: 23,
     isLiked: false,
-    instructions: """
-      Mix all the ingredients in the Honey Teriyaki Glaze together.
-      Whisk to blend well.
-      Combine the salmon and the Glaze together.
-      Heat up a skillet on medium-low heat.
-      Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.
-      Garnish with sesame and serve immediately.
-
-""",
+    instructions:
+        """Mix all the ingredients in the Honey Teriyaki Glaze together. Whisk to blend well. Combine the salmon and the Glaze together. Heat up a skillet on medium-low heat. Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens. Garnish with sesame and serve immediately.""",
     ingredients: [
       "1 lb Salmon",
       "1 tablespoon Olive oil",
@@ -366,99 +334,48 @@ Serve hot.""",
   ),
   Food(
     id: 10,
-    name: "Bread omelette",
-    image: "https://i.ibb.co/gv9nBd0/hqaejl1695738653.jpg",
-    cal: 5,
-    time: 10,
-    rate: 4,
+    name: "Lamb Pilaf (Plov)",
+    image: "https://i.ibb.co/93r3h0d/kos9av1699014767.jpg",
+    cal: 500,
+    time: 40,
+    rate: 4.5,
     reviews: 23,
     isLiked: false,
-    instructions: """
-      Make and enjoy
-
+    instructions:
+        """Place the raisins and prunes into a small bowl and pour over enough water to cover. Add lemon juice and let soak for at least 1 hour. Drain. Roughly chop the prunes. Meanwhile, heat the butter in a large pan, add the onion, and cook for 5 minutes. Add cubed lamb, ground lamb, and crushed garlic cloves. Fry for 5 minutes, stirring constantly until browned. Pour 2/3 cup (150 milliliters) of stock into the pan. Bring to a boil, then lower the heat, cover, and simmer for 1 hour, or until the lamb is tender. Add the remaining stock and bring to a boil. Add rinsed long-grain white rice and a large pinch of saffron. Stir, then cover, and simmer for 15 minutes, or until the rice is tender. Add the drained raisins, drained chopped prunes, and salt and pepper to taste. Heat through for a few minutes, then turn out onto a warmed serving dish and garnish with sprigs of flat-leaf parsley.
+        
 """,
-    ingredients: ['2 Bread', '2 Egg', '0.5 Salt', "2 tbs Olive Oil"],
+    ingredients: [
+      "50g Lamb",
+      "1 tbs Lemon Juice",
+      "2 tbs Butter",
+      "1 chopped Onion",
+      "450g Lamb",
+      "2 cloves Garlic",
+      "600ml Vegetable Stock",
+      "2 cups Rice",
+      "Pinch Saffron",
+      "Garnish Parsley",
+    ],
   ),
   Food(
     id: 11,
-    name: "Baingan Bharta",
-    image: "https://i.ibb.co/QPB3QSR/urtpqw1487341253.jpg",
+    name: "Chicken Enchilada Casserole",
+    image: "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
     cal: 300,
     time: 25,
     rate: 4.0,
     reviews: 23,
     isLiked: false,
     instructions: """
-      Rinse the baingan (eggplant or aubergine) in water.
-      Pat dry with a kitchen napkin.
-      Apply some oil all over and keep it for roasting on an open flame.
-      You can also grill the baingan or roast in the oven.
-      But then you won't get the smoky flavor of the baingan.
-      Keep the eggplant turning after a 2 to 3 minutes on the flame, so that its evenly cooked.
-      You could also embed some garlic cloves in the baingan and then roast it.
-      2.
-      Roast the aubergine till its completely cooked and tender.
-      With a knife check the doneness.
-      The knife should slid easily in aubergines without any resistance.
-      Remove the baingan and immerse in a bowl of water till it cools down.
-      3.
-      You can also do the dhungar technique of infusing charcoal smoky flavor in the baingan.
-      This is an optional step.
-      Use natural charcoal for this method.
-      Heat a small piece of charcoal on flame till it becomes smoking hot and red.
-      4.
-      Make small cuts on the baingan with a knife.
-      Place the red hot charcoal in the same plate where the roasted aubergine is kept.
-      Add a few drops of oil on the charcoal.
-      The charcoal would begin to smoke.
-      5.
-      As soon as smoke begins to release from the charcoal, cover the entire plate tightly with a large bowl.
-      Allow the charcoal smoke to get infused for 1 to 2 minutes.
-      The more you do, the more smoky the baingan bharta will become.
-      I just keep for a minute.
-      Alternatively, you can also do this dhungar method once the baingan bharta is cooked, just like the way we do for Dal Tadka.
-      6.
-      Peel the skin from the roasted and smoked eggplant.
-      7.
-      Chop the cooked eggplant finely or you can even mash it.
-      8.
-      In a kadai or pan, heat oil.
-      Then add finely chopped onions and garlic.
-      9.
-      Saute the onions till translucent.
-      Don't brown them.
-      10.
-      Add chopped green chilies and saute for a minute.
-      11.
-      Add the chopped tomatoes and mix it well.
-      12.
-      Bhuno (saute) the tomatoes till the oil starts separating from the mixture.
-      13.
-      Now add the red chili powder.
-      Stir and mix well.
-      14.
-      Add the chopped cooked baingan.
-      15.
-      Stir and mix the chopped baingan very well with the onion­tomato masala mixture.
-      16.
-      Season with salt.
-      Stir and saute for some more 4 to 5 minutes more.
-      17.
-      Finally stir in the coriander leaves with the baingan bharta or garnish it with them.
-      Serve Baingan Bharta with phulkas, rotis or chapatis.
-      It goes well even with bread, toasted or grilled bread and plain rice or jeera rice.
+      Cut each chicken breast in about 3 pieces, so that it cooks faster and put it in a small pot. Pour Enchilada sauce over it and cook covered on low to medium heat until chicken is cooked through, about 20 minutes. No water is needed, the chicken will cook in the Enchilada sauce. Make sure you stir occasionally so that it doesn't stick to the bottom. Remove chicken from the pot and shred with two forks. Preheat oven to 375 F degrees. Start layering the casserole. Start with about ¼ cup of the leftover Enchilada sauce over the bottom of a baking dish. I used a longer baking dish, so that I can put 2 corn tortillas across. Place 2 tortillas on the bottom, top with ⅓ of the chicken and ⅓ of the remaining sauce. Sprinkle with ⅓ of the cheese and repeat starting with 2 more tortillas, then chicken, sauce, cheese. Repeat with last layer with the remaining ingredients, tortillas, chicken, sauce and cheese. Bake for 20 to 30 minutes uncovered, until bubbly and cheese has melted and started to brown on top. Serve warm.
 
 """,
     ingredients: [
-      "1 large Aubergine",
-      "½ cup Onion",
-      "1 cup Tomatoes",
-      "6 cloves Garlic",
-      " 1 Green Chili",
-      "¼ teaspoon Red Chili Powder",
-      "1.5 tablespoon Oil",
-      "1 tablespoon chopped Coriander Leaves",
-      "as required salt",
+      "14 oz jar Enchilada sauce",
+      "3 Cups shredded Monterey Jack cheese",
+      "6 corn tortillas",
+      "2 chicken breasts",
     ],
   ),
   Food(

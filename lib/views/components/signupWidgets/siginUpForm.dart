@@ -41,7 +41,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
         key: _formKey,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
 
@@ -51,7 +51,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               controller: userNameController,
               decoration: InputDecoration(
-                  prefixIcon: Icon(Iconsax.user),
+                  prefixIcon: const Icon(Iconsax.user),
                   labelText: "User Name",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(100),
@@ -61,7 +61,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(100),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
@@ -71,7 +71,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               },
             ),
 
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
 
@@ -80,7 +80,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               controller: emailController,
               decoration: InputDecoration(
-                  prefixIcon: Icon(Iconsax.direct),
+                  prefixIcon: const Icon(Iconsax.direct),
                   labelText: "E-Mail",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(100),
@@ -90,7 +90,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(100),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
@@ -100,7 +100,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               },
             ),
 
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
 
@@ -111,6 +111,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               keyboardType: TextInputType.text,
               obscureText: !_isPasswordVisible,
               controller: passwordController,
+              obscureText: true,
               decoration: InputDecoration(
                   prefixIcon: Icon(Iconsax.password_check),
                   suffixIcon: IconButton(
@@ -122,6 +123,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                       });
                     },
                   ),
+                
                   labelText: "Password",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(100),
@@ -131,7 +133,7 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(100),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 2, color: Color.fromARGB(255, 150, 191, 13)))),
               validator: (value) {
                 if (value!.isEmpty) {
@@ -141,14 +143,14 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               },
             ),
 
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwInputFields,
             ),
 
             //Terms and condition
-            RecipeTermsCondition(),
+            const RecipeTermsCondition(),
 
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwSections,
             ),
 
@@ -183,12 +185,12 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
               },
             ),
 
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwSections,
             ),
 
             ///divider
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Flexible(
@@ -210,10 +212,10 @@ class _RecipeSignUpFormState extends State<RecipeSignUpForm> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: RecipeAppSizes.spaceBtwSections,
             ),
-            RecipeAppSocialButton(),
+            const RecipeAppSocialButton(),
           ],
         ));
   }

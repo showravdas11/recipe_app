@@ -10,18 +10,17 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-    color: Colors.black, //change your color here
-  ),
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         // scrollDirection: Axis.vertical,
         child: Padding(
           padding: EdgeInsets.all(RecipeAppSizes.defaultSpace),
@@ -29,18 +28,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Sign Up now to begin an amazing journey",
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,),
-              ),
-              SizedBox(height: 20,),
-              ///Sign up title
-              Text(
                 "Let's create your account",
                 style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w600),
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 150, 191, 13),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+
+              ///Sign up title
+              Text(
+                "Sign Up now to begin an amazing journey",
+                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
               ),
 
               SizedBox(
@@ -55,5 +57,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
-

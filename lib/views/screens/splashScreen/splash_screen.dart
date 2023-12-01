@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:green_recipe/views/screens/home_screen/bottom_appbar.dart';
 import 'package:green_recipe/views/screens/onboard_screen/onboard_screen.dart';
+
 class Splash extends StatefulWidget {
   const Splash({Key? key});
 
@@ -23,10 +26,19 @@ class _SplashState extends State<Splash> {
       });
 
       Future.delayed(const Duration(seconds: 1), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
-        );
+        final auth = FirebaseAuth.instance;
+        final user = auth.currentUser;
+        if (user != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const MainScreen()),
+          );
+        } else {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
+          );
+        }
       });
     });
   }
