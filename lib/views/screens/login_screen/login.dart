@@ -18,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isPasswordVisible = false;
   bool loading = false;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -109,10 +110,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           expands: false,
                           keyboardType: TextInputType.text,
+                          obscureText: !_isPasswordVisible,
                           controller: passwordController,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Iconsax.password_check),
-                              suffixIcon: Icon(Iconsax.eye_slash),
+                              suffixIcon: IconButton(
+                                icon: Icon(_isPasswordVisible
+                                    ? Iconsax.eye
+                                    : Iconsax.eye_slash),
+                                onPressed: () {
+                                  setState(() {
+                                    _isPasswordVisible = !_isPasswordVisible;
+                                  });
+                                },
+                              ),
                               labelText: "Password",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(100),
@@ -169,6 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         //sign in button
                         RoundedButton(
                             title: "Sign In",
+                            loading: loading,
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 setState(() {
@@ -197,6 +209,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     loading = false;
                                   });
                                 });
+                                emailController.clear();
+                                passwordController.clear();
                               }
                             }),
                   
