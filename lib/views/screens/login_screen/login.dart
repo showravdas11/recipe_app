@@ -11,10 +11,10 @@ import 'package:green_recipe/utils/constants/sizes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -27,47 +27,45 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
+    // TODO: implement dispose
+    super.dispose();
     emailController.dispose();
     passwordController.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding:
+              EdgeInsets.only(top: 56.0, left: 24.0, right: 24.0, bottom: 24.0),
+          child: SafeArea(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 100,
-                ),
                 Text(
-                  "Welcome back",
+                  "Welcome back,",
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width > 600 ? 35 : 35,
+                    fontSize: 27,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 150, 191, 13),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 8.0,
                 ),
                 Text(
                   "Good Food Good Mood, Sign into your Account",
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width > 600 ? 15 : 15,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(
-                  height: 30,
+
+                SizedBox(
+                  height: 16.0,
                 ),
+
+                //FORM
                 Form(
+                  key: _formKey,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 32.0),
                     child: Column(
@@ -100,13 +98,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                         ),
-                  
+
                         SizedBox(
                           height: 19.0,
                         ),
-                  
+
                         // password
-                  
+
                         TextFormField(
                           expands: false,
                           keyboardType: TextInputType.text,
@@ -145,11 +143,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                         ),
-                  
+
                         SizedBox(
                           height: 8.0,
                         ),
-                  
+
                         // remember me and forget password
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -176,11 +174,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 16,
                         ),
-                  
+
                         //sign in button
                         RoundedButton(
-                            title: "Sign In",
                             loading: loading,
+                            title: "Sign In",
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 setState(() {
@@ -209,147 +207,54 @@ class _LoginScreenState extends State<LoginScreen> {
                                     loading = false;
                                   });
                                 });
-                                emailController.clear();
-                                passwordController.clear();
                               }
                             }),
-                  
+
                         SizedBox(
                           height: 16.0,
                         ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      TextFormField(
-                        expands: false,
-                        keyboardType: TextInputType.text,
-                        controller: passwordController,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          prefixIcon: const Icon(Iconsax.password_check),
-                          suffixIcon: const Icon(Iconsax.eye_slash),
-                          labelText: "Password",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                            color: Color.fromARGB(255, 150, 191, 13),
-                          ),
-                          floatingLabelAlignment: FloatingLabelAlignment.start,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(100),
-                            borderSide: const BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 150, 191, 13),
+
+                        //create account button
+                        SizedBox(
+                          height: 60.0,
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              elevation: 0,
+                              foregroundColor: Colors.black,
+                              side: const BorderSide(
+                                  color: RecipeAppColors.borderColor),
+                              textStyle: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: RecipeAppSizes.buttonHeight,
+                                  horizontal: 20),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(60),
+                              ),
                             ),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Enter Your Password';
-                          }
-                          return null;
-                        },
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ForgetPasswordScreen(),
+                                  builder: (context) => SignUpScreen(),
                                 ),
                               );
                             },
-                            child: const Text(
-                              "Forget Password?",
-                              style: TextStyle(
-                                fontSize: RecipeAppSizes.fontSizeMd,
-                                fontWeight: FontWeight.w600,
-                                color: RecipeAppColors.textSecondary,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      RoundedButton(
-                        title: "Sign In",
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            setState(() {
-                              loading = true;
-                            });
-                            _auth
-                                .signInWithEmailAndPassword(
-                              email: emailController.text.toString(),
-                              password: passwordController.text.toString(),
-                            )
-                                .then((value) {
-                              Utils.toastMessage(value.user!.email.toString());
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const MainScreen(),
-                                ),
-                              );
-                              setState(() {
-                                loading = false;
-                              });
-                            }).onError((error, stackTrace) {
-                              debugPrint(error.toString());
-                              Utils.toastMessage(error.toString());
-                              setState(() {
-                                loading = false;
-                              });
-                            });
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      SizedBox(
-                        height: 60.0,
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            elevation: 0,
-                            foregroundColor: Colors.black,
-                            side: const BorderSide(
-                              color: RecipeAppColors.borderColor,
-                            ),
-                            textStyle: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: RecipeAppSizes.buttonHeight,
-                              horizontal: 20,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(60),
-                            ),
+                            child: Text("Create Account"),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignUpScreen(),
-                              ),
-                            );
-                          },
-                          child: const Text("Create Account"),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                                  ),
                 ),
-                // Divider
+
+                SizedBox(
+                  height: 20,
+                ),
+                //Devider
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -357,30 +262,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Divider(
                         color: RecipeAppColors.dividerColor,
                         thickness: 0.5,
-                        indent:
-                            MediaQuery.of(context).size.width > 600 ? 60 : 10,
-                        endIndent:
-                            MediaQuery.of(context).size.width > 600 ? 5 : 10,
+                        indent: 60,
+                        endIndent: 5,
                       ),
                     ),
-                    const Text('or sign in with'),
+                    Text('or sign in with'),
                     Flexible(
                       child: Divider(
                         color: RecipeAppColors.dividerColor,
                         thickness: 0.5,
-                        indent:
-                            MediaQuery.of(context).size.width > 600 ? 5 : 10,
-                        endIndent:
-                            MediaQuery.of(context).size.width > 600 ? 60 : 10,
+                        indent: 5,
+                        endIndent: 60,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: RecipeAppSizes.spaceBtwSections,
+
+                SizedBox(
+                  height: 25.0,
                 ),
-                // Footer
-                const RecipeAppSocialButton(),
+
+                //Footer
+                RecipeAppSocialButton(),
               ],
             ),
           ),
