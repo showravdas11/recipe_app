@@ -182,7 +182,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                                         icon: Icon(
                                           Iconsax.trash,
                                           color: Colors.white,
-                                          // size: 20,
+                                          size: 19,
                                         ),
                                         onPressed: () {
                                           // Implement delete logic if needed
