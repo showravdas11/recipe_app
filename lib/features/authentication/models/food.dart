@@ -22,6 +22,25 @@ class Food {
     required this.instructions,
     required this.ingredients,
   });
+
+  factory Food.fromMap(Map<String, dynamic> map) {
+    return Food(
+      id: map['id'] as int? ?? 0,
+      name: map['name'] as String? ?? '',
+      image: map['image'] as String? ?? '',
+      cal: (map['cal'] as num?)?.toDouble() ?? 0.0,
+      time: (map['time'] as num?)?.toDouble() ?? 0.0,
+      rate: (map['rate'] as num?)?.toDouble() ?? 0.0,
+      reviews: (map['reviews'] as int?) ?? 0,
+      isLiked: map['isLiked'] as bool? ?? false,
+      instructions: map['instructions'] as String? ?? '',
+      ingredients: (map['ingredients'] as List<dynamic>?)
+              ?.map((ingredient) => ingredient.toString())
+              .toList() ??
+          [],
+      // Add other properties as needed
+    );
+  }
 }
 
 final List<Food> foods = [
@@ -343,7 +362,6 @@ Serve hot.""",
     isLiked: false,
     instructions:
         """Place the raisins and prunes into a small bowl and pour over enough water to cover. Add lemon juice and let soak for at least 1 hour. Drain. Roughly chop the prunes. Meanwhile, heat the butter in a large pan, add the onion, and cook for 5 minutes. Add cubed lamb, ground lamb, and crushed garlic cloves. Fry for 5 minutes, stirring constantly until browned. Pour 2/3 cup (150 milliliters) of stock into the pan. Bring to a boil, then lower the heat, cover, and simmer for 1 hour, or until the lamb is tender. Add the remaining stock and bring to a boil. Add rinsed long-grain white rice and a large pinch of saffron. Stir, then cover, and simmer for 15 minutes, or until the rice is tender. Add the drained raisins, drained chopped prunes, and salt and pepper to taste. Heat through for a few minutes, then turn out onto a warmed serving dish and garnish with sprigs of flat-leaf parsley.
-        
 """,
     ingredients: [
       "50g Lamb",
@@ -524,7 +542,7 @@ Serve hot.""",
       "2 tbs Olive Oil",
       "2 Sesame Seed Burger Buns",
       "Chopped Onion",
-      " 1/4 Iceberg Lettuce",
+      "1/4 Iceberg Lettuce",
       "2 sliced Cheese",
       "2 large Dill Pickles",
       "1 cup Mayonnaise",
@@ -844,8 +862,7 @@ Serve hot.""",
     reviews: 23,
     isLiked: false,
     instructions: """
-      1.
-      Blend all the mousse ingredients together in your food processor until smooth.
+      1.Blend all the mousse ingredients together in your food processor until smooth.
       Add the cacao powder first and, as you blend, have all the ingredients to hand in order to adjust the ratios slightly as the size of avocados and bananas varies so much.
       The perfect ratio in order to avoid the dish tasting too much of either is to use equal amounts of both.
       2.

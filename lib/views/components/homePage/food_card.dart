@@ -67,9 +67,9 @@ class FoodCard extends StatelessWidget {
                           child: IconButton(
                             onPressed: () {
                               // Toggle the like status
-                              food.isLiked = !food.isLiked!;
+                              food.isLiked = food.isLiked;
                             },
-                            icon: food.isLiked!
+                            icon: food.isLiked
                                 ? const Icon(Iconsax.heart5, color: Colors.red)
                                 : const Icon(Iconsax.heart),
                             iconSize: 20,

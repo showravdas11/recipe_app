@@ -40,8 +40,6 @@ class _RecipeAppSocialButtonState extends State<RecipeAppSocialButton> {
                           ),
                         );
                 }
-
-                
               } on FirebaseAuthException catch (error){
                 Utils.toastMessage(error.message.toString());
               }catch (error) {

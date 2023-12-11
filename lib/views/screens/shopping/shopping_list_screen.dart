@@ -10,7 +10,7 @@ class ShoppingScreen extends StatefulWidget {
 }
 
 class _ShoppingScreenState extends State<ShoppingScreen> {
-   List<String> shoppingList = [];
+  List<String> shoppingList = [];
   TextEditingController itemController = TextEditingController();
 
   createToDo() {
@@ -19,12 +19,12 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
         .doc(itemController.text);
 
     Map<String, String> todoList = {
-      "todoTitle":itemController.text,
+      "todoTitle": itemController.text,
     };
     documentReference.set(todoList).whenComplete(() => {
-      itemController.clear(),
-      print("Error storing data:"),
-    });
+          itemController.clear(),
+          print("Error storing data:"),
+        });
   }
 
   void deleteTodo(String todoTitle) {
@@ -91,7 +91,9 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection("userTodos").snapshots(),
+              stream: FirebaseFirestore.instance
+                  .collection("userTodos")
+                  .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
@@ -106,7 +108,8 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                 }
 
                 List<String> shoppingList = snapshot.data!.docs
-                    .map((DocumentSnapshot document) => document["todoTitle"] as String)
+                    .map((DocumentSnapshot document) =>
+                        document["todoTitle"] as String)
                     .toList();
 
                 return shoppingList.isEmpty
@@ -122,7 +125,8 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                             const SizedBox(height: 10.0),
                             Text(
                               "No Items added",
-                              style: TextStyle(fontSize: 15.0, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 15.0, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -165,33 +169,35 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  Text(shoppingList[index],style: TextStyle(fontSize: 20),),
+                                  Text(
+                                    shoppingList[index],
+                                    style: TextStyle(fontSize: 20),
+                                  ),
                                 ],
                               ),
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                   Container(
+                                  Container(
                                     height: 40,
                                     width: 40,
                                     decoration: BoxDecoration(
-                                      color: Color.fromARGB(175, 255, 17, 0),
-                                      borderRadius: BorderRadius.circular(15)
-                                    ),
-                                     child: IconButton(
-                                        icon: Icon(
-                                          Iconsax.trash,
-                                          color: Colors.white,
-                                          size: 19,
-                                        ),
-                                        onPressed: () {
-                                          // Implement delete logic if needed
-                                           deleteTodo(shoppingList[index]);
-                                        },
-                                        splashRadius: 10,
+                                        color: Color.fromARGB(175, 255, 17, 0),
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: IconButton(
+                                      icon: Icon(
+                                        Iconsax.trash,
+                                        color: Colors.white,
+                                        size: 19,
                                       ),
-                                   ),
-                                  
+                                      onPressed: () {
+                                        // Implement delete logic if needed
+                                        deleteTodo(shoppingList[index]);
+                                      },
+                                      splashRadius: 10,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
