@@ -4,6 +4,7 @@ import 'package:green_recipe/views/screens/home_screen/home_screen.dart';
 import 'package:green_recipe/views/screens/settingScreen/setting_screen.dart';
 import 'package:green_recipe/views/screens/shopping/shopping_list_screen.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key});
@@ -18,129 +19,69 @@ class _MainScreenState extends State<MainScreen> {
     const HomeScreen(),
     const FavoritesScreen(),
     const ShoppingScreen(),
-    const AccountScreen()
+    const AccountScreen(),
   ];
-  // bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        bottomNavigationBar: BottomAppBar(
-          // color: Theme.of(context).colorScheme.primary,
-          // color: isDarkMode
-          // ? Theme.of(context).colorScheme.primary// Dark mode background color
-          // : Colors.white,
-          elevation: 0.0,
-          // height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              GestureDetector(
-                onTap: () => setState(() {
-                  currentTab = 0;
-                }),
-                child: Column(
-                  children: [
-                    Icon(
-                      currentTab == 0 ? Iconsax.home5 : Iconsax.home,
-                      color: currentTab == 0
-                          ? const Color.fromARGB(255, 150, 191, 13)
-                          : Colors.grey,
-                    ),
-                    Text(
-                      "Home",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: currentTab == 0
-                            ? const Color.fromARGB(255, 150, 191, 13)
-                            : Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () => setState(() {
-                  currentTab = 1;
-                }),
-                child: Column(
-                  children: [
-                    Icon(
-                      currentTab == 1 ? Iconsax.heart5 : Iconsax.heart,
-                      color: currentTab == 1
-                          ? const Color.fromARGB(255, 150, 191, 13)
-                          : Colors.grey,
-                    ),
-                    Text(
-                      "Favorites",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: currentTab == 1
-                            ? const Color.fromARGB(255, 150, 191, 13)
-                            : Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () => setState(() {
-                  currentTab = 2;
-                }),
-                child: Column(
-                  children: [
-                    Icon(
-                      currentTab == 2
-                          ? Iconsax.shopping_cart5
-                          : Iconsax.shopping_cart,
-                      color: currentTab == 2
-                          ? const Color.fromARGB(255, 150, 191, 13)
-                          : Colors.grey,
-                    ),
-                    Text(
-                      "Shopping List",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: currentTab == 2
-                            ? const Color.fromARGB(255, 150, 191, 13)
-                            : Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () => setState(() {
-                  currentTab = 3;
-                }),
-                child: Column(
-                  children: [
-                    Icon(
-                      currentTab == 3
-                          ? Iconsax.setting_21
-                          : Iconsax.setting_2,
-                      color: currentTab == 3
-                          ? const Color.fromARGB(255, 150, 191, 13)
-                          : Colors.grey,
-                    ),
-                    Text(
-                      "Settings",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: currentTab == 3
-                            ? const Color.fromARGB(255, 150, 191, 13)
-                            : Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(right: 15, left: 15, bottom: 10, top: 10 ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: Color.fromARGB(255, 255, 255, 255),
+            boxShadow: [
+              BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(0.2)),
             ],
           ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth >= 600 ? 40 : 15,
+              vertical: 10.0,
+            ),
+            child: GNav(
+              gap: 8,
+              activeColor: Color.fromARGB(255, 255, 255, 255),
+              iconSize: screenWidth >= 600 ? 28 : 24,
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth >= 600 ? 50 : 15,
+                vertical: 8,
+              ),
+              duration: const Duration(milliseconds: 800),
+              tabBackgroundColor: const Color.fromARGB(255, 150, 191, 13),
+              tabs: [
+                GButton(
+                  icon: Iconsax.home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Iconsax.heart,
+                  text: 'Favorites',
+                ),
+                GButton(
+                  icon: Iconsax.shopping_cart,
+                  text: 'Shopping',
+                ),
+                GButton(
+                  icon: Iconsax.setting_2,
+                  text: 'Settings',
+                ),
+              ],
+              selectedIndex: currentTab,
+              onTabChange: (index) {
+                setState(() {
+                  currentTab = index;
+                });
+              },
+            ),
+          ),
         ),
-        body: screens[currentTab],
       ),
+      body: screens[currentTab],
     );
   }
 }
