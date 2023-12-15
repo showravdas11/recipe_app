@@ -1,39 +1,72 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:green_recipe/features/authentication/models/categories_item.dart';
 
-class Categoriess extends StatelessWidget {
-  const Categoriess({
-    super.key,
-    required this.currentCat,
-  });
-
-  final String currentCat;
+class CategoriesItem extends StatefulWidget {
+  const CategoriesItem({Key? key}) : super(key: key);
 
   @override
+  State<CategoriesItem> createState() => _CategoriesItemState();
+}
+
+class _CategoriesItemState extends State<CategoriesItem> {
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(
-          categories.length,
-          (index) => Container(
-            decoration: BoxDecoration(
-                color: currentCat == categories[index]
-                    ? const Color.fromARGB(255, 150, 191, 13)
-                    : Colors.white,
-                borderRadius: BorderRadius.circular(25)),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            margin: const EdgeInsets.only(right: 20),
-            child: Text(
-              categories[index],
-              style: TextStyle(
-                color: currentCat == categories[index]
-                    ? Colors.white
-                    : Colors.grey.shade600,
-              ),
-            ),
-          ),
-        ),
+    return Container(
+      height: 120,
+      child: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('categories').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: const CircularProgressIndicator());
+          }
+
+          return ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              var cate = snapshot.data!.docs[index];
+              return Container(
+                width: 100,
+                margin: EdgeInsets.all(1.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromARGB(255, 234, 248, 242), 
+            //             boxShadow: [
+            //   BoxShadow(blurRadius: 2, color: Colors.black.withOpacity(0.2)),
+            // ],
+                      ),
+                      width: 70,
+                      height: 65,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.network(
+                          cate['image'],
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 8.0),
+                    Text(
+                      cate['catName'],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

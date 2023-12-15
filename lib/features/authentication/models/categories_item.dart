@@ -1,6 +1,7 @@
-List<String> categories = [
+List<String> categoriesBtn = [
   "All",
-  "Breakfast",
-  "Lunch",
-  "Dinner"
+  "Chicken",
+  "Beef",
+  "Mutton",
+  "Dessert"
 ]; 

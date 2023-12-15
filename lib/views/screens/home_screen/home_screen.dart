@@ -13,14 +13,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String currentCat = "All";
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // backgroundColor: Color.fromARGB(255, 234, 248, 242),
         body: SingleChildScrollView(
-          child: Padding(
+          child: Padding(  
             padding: const EdgeInsets.all(15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,9 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Categoriess(currentCat: currentCat),
-                const SizedBox(height: 10),
-                const QuickAndFastList(),
+                // Categoriess(currentCat: currentCat),
+                CategoriesItem(),
+                const SizedBox(height: 6),
+                 QuickAndFastList(),
               ],
             ),
           ),
