@@ -145,13 +145,14 @@ class _AccountScreenState extends State<AccountScreen> {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  auth.signOut().then((value) {
+                  UserController.signOut().then((_) {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ));
-                  }).onError((error, stackTrace) {
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  }).catchError((error) {
                     Utils.toastMessage(error.toString());
                   });
                 },
@@ -159,7 +160,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   title: "Logout",
                   icon: Ionicons.log_out_outline,
                   bgColor: Color.fromRGBO(225, 251, 137, 0.922),
-                  iconColor: Color.fromARGB(255, 114, 148, 4), 
+                  iconColor: Color.fromARGB(255, 114, 148, 4),
                   onTap: () {},
                 ),
               ),

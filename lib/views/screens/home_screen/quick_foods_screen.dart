@@ -43,7 +43,7 @@ class _QuickFoodsScreenState extends State<QuickFoodsScreen> {
                               Food food = Food.fromMap(
                                   snapshot.data!.docs[index].data()
                                       as Map<String, dynamic>);
-
+                              food.id = snapshot.data!.docs[index].id;
                               return FoodCard(food: food);
                             },
                           );

@@ -3,10 +3,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class UserController {
   static User? user = FirebaseAuth.instance.currentUser;
+  static GoogleSignIn _googleSignIn = GoogleSignIn();
 
   static Future<User?> loginWithGoogle() async {
     try {
-      final googleAccount = await GoogleSignIn().signIn();
+      final googleAccount = await _googleSignIn.signIn();
       if (googleAccount == null) {
         // User canceled the sign-in process
         return null;
@@ -22,19 +23,21 @@ class UserController {
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
 
-      return userCredential.user;
+      user = userCredential.user; // Update cached user
+      return user;
     } catch (e) {
       print("Error during Google sign-in: $e");
       return null;
     }
   }
 
-  // static Future<void> signOut() async {
-  //   try {
-  //     await FirebaseAuth.instance.signOut();
-  //     await GoogleSignIn().signOut();
-  //   } catch (e) {
-  //     print("Error during sign-out: $e");
-  //   }
-  // }
+  static Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      await _googleSignIn.signOut();
+      user = null; // Clear cached user
+    } catch (e) {
+      print("Error during sign-out: $e");
+    }
+  }
 }
