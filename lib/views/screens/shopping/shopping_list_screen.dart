@@ -37,52 +37,51 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
     });
   }
 
-void deleteTodo(String todoTitle) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text("Confirm Delete"),
-        content: Text("Are you sure you want to delete this item?"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context); // Close the alert dialog
-            },
-            child: Text("Cancel"),
-          ),
-          TextButton(
-            onPressed: () {
-              // Delete from Firestore
-              FirebaseFirestore.instance
-                  .collection("userTodos")
-                  .where("todoTitle", isEqualTo: todoTitle)
-                  .where("todoEmail", isEqualTo: email)
-                  .get()
-                  .then((QuerySnapshot querySnapshot) {
-                querySnapshot.docs.forEach((doc) {
-                  doc.reference.delete();
-                });
-              }).whenComplete(() {
-                print("Data deleted from Firestore");
+  void deleteTodo(String todoTitle) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Confirm Delete"),
+          content: Text("Are you sure you want to delete this item?"),
+          actions: [
+            TextButton(
+              onPressed: () {
                 Navigator.pop(context); // Close the alert dialog
-              }).catchError((error) {
-                print("Error deleting data: $error");
-              });
+              },
+              child: Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                // Delete from Firestore
+                FirebaseFirestore.instance
+                    .collection("userTodos")
+                    .where("todoTitle", isEqualTo: todoTitle)
+                    .where("todoEmail", isEqualTo: email)
+                    .get()
+                    .then((QuerySnapshot querySnapshot) {
+                  querySnapshot.docs.forEach((doc) {
+                    doc.reference.delete();
+                  });
+                }).whenComplete(() {
+                  print("Data deleted from Firestore");
+                  Navigator.pop(context); // Close the alert dialog
+                }).catchError((error) {
+                  print("Error deleting data: $error");
+                });
 
-              // Update the UI
-              setState(() {
-                shoppingList.remove(todoTitle);
-              });
-            },
-            child: Text("Delete"),
-          ),
-        ],
-      );
-    },
-  );
-}
-
+                // Update the UI
+                setState(() {
+                  shoppingList.remove(todoTitle);
+                });
+              },
+              child: Text("Delete"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -140,8 +139,8 @@ void deleteTodo(String todoTitle) {
                               const SizedBox(height: 10.0),
                               Text(
                                 "No Items added",
-                                style:
-                                    TextStyle(fontSize: 15.0, color: Colors.grey),
+                                style: TextStyle(
+                                    fontSize: 15.0, color: Colors.grey),
                               ),
                             ],
                           ),
@@ -197,7 +196,8 @@ void deleteTodo(String todoTitle) {
                                       height: 40,
                                       width: 40,
                                       decoration: BoxDecoration(
-                                          color: Color.fromARGB(175, 255, 17, 0),
+                                          color:
+                                              Color.fromARGB(175, 255, 17, 0),
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       child: IconButton(
