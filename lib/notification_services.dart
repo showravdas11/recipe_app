@@ -1,25 +1,37 @@
-import 'dart:developer';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
-
-Future<void> BackgroundHandler(RemoteMessage remoteMessage) async {
-  log("Handling background message: ${remoteMessage.notification?.title}");
-  // Optionally, handle the FCM token here as well
-  String? token = await FirebaseMessaging.instance.getToken();
-  log("FCM Token: $token");
-}
+import 'package:get/get.dart';
+import 'package:green_recipe/main.dart';
 
 class NotificationServices {
-  static Future<void> initialize() async {
-    await FirebaseMessaging.instance.requestPermission();
+  // create instance of firebase messaging
+  final _firebaseMessaging = FirebaseMessaging.instance;
+
+  // Function to initialize notification
+  Future<void> initNotifications() async {
+    await _firebaseMessaging.requestPermission();
+
+    final fCMToken = await _firebaseMessaging.getToken();
+
+    // print("Token: $fCMToken");
+
+    initNotifications();
+
     
-    FirebaseMessaging.onBackgroundMessage(BackgroundHandler);
 
-    FirebaseMessaging.onMessage.listen((message) {
-      log("Handling foreground message: ${message.notification?.title}");
-      // You can add additional handling for foreground messages here
-    });
+  }
 
-    log("Notification service initialized");
+  void handleMessage(RemoteMessage? message) {
+    if (message == null) return;
+
+    navigatorKey.currentState?.pushNamed(
+      "/notification_screen",
+      arguments: message
+    );
+  }
+
+  Future initPushNotifications() async{
+    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
+
+    FirebaseMessaging.onMessage.listen(handleMessage);
   }
 }
