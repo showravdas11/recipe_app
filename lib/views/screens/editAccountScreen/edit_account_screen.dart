@@ -127,24 +127,7 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
                                 width: 2,
                                 color: Color.fromARGB(255, 150, 191, 13)))),
                   ),
-                  const SizedBox(height: 15),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(Iconsax.password_check),
-                        suffixIcon: Icon(Iconsax.eye_slash),
-                        labelText: "Password",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        floatingLabelStyle: const TextStyle(
-                            color: Color.fromARGB(255, 150, 191, 13)),
-                        floatingLabelAlignment: FloatingLabelAlignment.start,
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(100),
-                            borderSide: BorderSide(
-                                width: 2,
-                                color: Color.fromARGB(255, 150, 191, 13)))),
-                  ),
+                  
                 ],
               )),
               SizedBox(

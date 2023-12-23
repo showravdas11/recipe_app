@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class QuickScreenAppbar extends StatelessWidget {
-  const QuickScreenAppbar({
-    super.key,
-  });
+class CommonFavBar extends StatefulWidget {
+  const CommonFavBar({super.key});
 
+  @override
+  State<CommonFavBar> createState() => _CommonFavBarState();
+}
+
+class _CommonFavBarState extends State<CommonFavBar> {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Card(
+         Card(
           child: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -27,22 +30,8 @@ class QuickScreenAppbar extends StatelessWidget {
         ),
         const Spacer(), 
         const Text(
-          "Quick & Fast",
+          "Favorites",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const Spacer(),
-        Card(
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(Iconsax.notification),
-            style: IconButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              backgroundColor: Colors.white,
-              fixedSize: const Size(50, 50),
-            ),
-          ),
         ),
       ],
     );

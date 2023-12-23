@@ -8,6 +8,7 @@ import 'package:green_recipe/features/authentication/controllers/user_controller
 import 'package:green_recipe/utils/theme/theme_provider.dart';
 import 'package:green_recipe/views/screens/editAccountScreen/edit_account_screen.dart';
 import 'package:green_recipe/views/screens/login_screen/login.dart';
+import 'package:green_recipe/views/screens/notificationpage/notification.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
@@ -122,12 +123,17 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const SizedBox(height: 20),
               SettingItem(
-                title: "Notifications",
-                icon: Ionicons.notifications,
-                bgColor: Colors.blue.shade100,
-                iconColor: Colors.blue,
-                onTap: () {},
-              ),
+  title: "Notifications",
+  icon: Ionicons.notifications,
+  bgColor: Colors.blue.shade100,
+  iconColor: Colors.blue,
+  onTap: () async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NotificationScreen()),
+    );
+  },
+),
               const SizedBox(height: 20),
               SettingSwitch(
                 title: "Dark Mode",
@@ -145,13 +151,14 @@ class _AccountScreenState extends State<AccountScreen> {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  auth.signOut().then((value) {
+                  UserController.signOut().then((_) {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ));
-                  }).onError((error, stackTrace) {
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  }).catchError((error) {
                     Utils.toastMessage(error.toString());
                   });
                 },
@@ -159,7 +166,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   title: "Logout",
                   icon: Ionicons.log_out_outline,
                   bgColor: Color.fromRGBO(225, 251, 137, 0.922),
-                  iconColor: Color.fromARGB(255, 114, 148, 4), 
+                  iconColor: Color.fromARGB(255, 114, 148, 4),
                   onTap: () {},
                 ),
               ),

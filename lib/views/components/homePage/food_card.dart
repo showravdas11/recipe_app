@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:green_recipe/features/authentication/models/food.dart';
 import 'package:green_recipe/views/screens/home_screen/recipe_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FoodCard extends StatelessWidget {
+class FoodCard extends StatefulWidget {
   final Food food;
   const FoodCard({
     Key? key,
@@ -11,12 +12,17 @@ class FoodCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<FoodCard> createState() => _FoodCardState();
+}
+
+class _FoodCardState extends State<FoodCard> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => RecipeScreen(food: food),
+          builder: (context) => RecipeScreen(food: widget.food),
         ),
       ),
       child: SizedBox(
@@ -48,7 +54,7 @@ class FoodCard extends StatelessWidget {
                           topLeft: Radius.circular(15),
                         ),
                         image: DecorationImage(
-                          image: NetworkImage(food.image),
+                          image: NetworkImage(widget.food.image),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -67,9 +73,11 @@ class FoodCard extends StatelessWidget {
                           child: IconButton(
                             onPressed: () {
                               // Toggle the like status
-                              food.isLiked = !food.isLiked!;
+                              widget.food.isLiked = widget.food.isLiked;
+                              updateUser(widget.food.id, !widget.food.isLiked);
+                              // prevusers();
                             },
-                            icon: food.isLiked!
+                            icon: widget.food.isLiked
                                 ? const Icon(Iconsax.heart5, color: Colors.red)
                                 : const Icon(Iconsax.heart),
                             iconSize: 20,
@@ -92,7 +100,7 @@ class FoodCard extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              food.name,
+                              widget.food.name,
                               overflow: TextOverflow.ellipsis,
                               // ignore: prefer_const_constructors
                               style: TextStyle(
@@ -114,7 +122,7 @@ class FoodCard extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                "${food.cal}",
+                                "${widget.food.cal}",
                                 style: const TextStyle(
                                   fontSize: 12,
                                 ),
@@ -132,7 +140,7 @@ class FoodCard extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                "${food.time} Min",
+                                "${widget.food.time} Min",
                                 style: const TextStyle(
                                   fontSize: 12,
                                 ),
@@ -153,14 +161,14 @@ class FoodCard extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                "${food.rate}/5",
+                                "${widget.food.rate}/5",
                                 style: const TextStyle(fontSize: 12),
                               ),
                               const SizedBox(
                                 width: 5,
                               ),
                               Text(
-                                "${food.reviews} Reviews",
+                                "${widget.food.reviews} Reviews",
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.grey.shade600),
                               )
@@ -177,3 +185,15 @@ class FoodCard extends StatelessWidget {
     );
   }
 }
+
+
+CollectionReference users = FirebaseFirestore.instance.collection('Foods');
+
+Future<void> updateUser(String id, bool isLiked) {
+  return users
+    .doc(id)
+    .update({'isLiked': isLiked})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+
